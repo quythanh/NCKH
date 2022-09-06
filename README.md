@@ -1,5 +1,5 @@
 cd .\frontend\
 
-npm i
+yarn install
 
-npm start
+yarn start
