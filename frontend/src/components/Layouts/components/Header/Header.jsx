@@ -1,7 +1,5 @@
 import classNames from 'classnames/bind';
 
-import { IMenuItem } from '~/interfaces';
-
 import styles from './Header.module.scss';
 import Menu from '~/components/Menu';
 import Button from '~/components/Button';
@@ -9,7 +7,7 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-const LIST_MENU_ITEMS: IMenuItem[] = [
+const LIST_MENU_ITEMS = [
     {
         title: 'Đặt mục tiêu',
         page: '/',
@@ -20,10 +18,10 @@ const LIST_MENU_ITEMS: IMenuItem[] = [
     },
 ];
 
-const Header: React.FC = () => {
-    const [user, setUser] = useState<boolean>(false);
+const Header = () => {
+    const [user, setUser] = useState(false);
 
-    const handleSetUser: () => void = () => {
+    const handleSetUser = () => {
         setUser((prev) => !prev);
     };
 

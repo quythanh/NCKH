@@ -1,28 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
-
-import { ITableData } from '~/interfaces';
 
 import styles from './Table.module.scss';
 import Input from '~/components/Input';
 import Button from '~/components/Button';
+import request from '~/utils/request';
 
 const cx = classNames.bind(styles);
 
-const Table: React.FC<{ rawData: ITableData }> = ({ rawData }) => {
-    const [data, setData] = useState<string[][]>(rawData.data);
-    const [heading, setHeading] = useState<string[]>(rawData.heading.data);
+const Table = ({ rawData, srcData = '' }) => {
+    const [data, setData] = useState(rawData.data);
+    const [heading] = useState(rawData.heading.data);
 
-    const AppendData: () => void = () => {
-        setData((prev) => [...prev, [...prev[0].map(() => '')]]);
+    const AppendData = () => {
+        setData((prev) => {
+            if (prev.length === 0) return heading.length === 1 ? [['', '']] : [[...heading.map(() => '')]];
+            return [...prev, [...prev[0].map(() => '')]];
+        });
     };
 
-    const HandleUpdateData: (x: number, y: number, newValue: string) => void = (x, y, newValue) => {
+    const HandleUpdateData = (x, y, newValue) => {
         setData((prev) => {
             prev[x][y] = newValue;
             return prev;
         });
     };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const req = await request.get(srcData);
+            setData(req.data['data']);
+        };
+        if (srcData !== '') fetchData();
+    }, []);
 
     return (
         <div className={cx('wrapper')}>
@@ -34,7 +44,7 @@ const Table: React.FC<{ rawData: ITableData }> = ({ rawData }) => {
                     >
                         <tr>
                             {heading.map((h, index) => (
-                                <th key={index} colSpan={data[0].length / heading.length}>
+                                <th key={index} colSpan={data.length === 0 ? 1 : data[0].length / heading.length}>
                                     {h}
                                 </th>
                             ))}
@@ -49,7 +59,7 @@ const Table: React.FC<{ rawData: ITableData }> = ({ rawData }) => {
                                     autoSize
                                     className={cx('input')}
                                     defaultValue={row[0]}
-                                    onUpdate={(el: any) => HandleUpdateData(indexRow, 0, el.value)}
+                                    onUpdate={(el) => HandleUpdateData(indexRow, 0, el.value)}
                                 />
                             </th>
                             {row.slice(1).map((val, indexCol) => (
@@ -60,7 +70,7 @@ const Table: React.FC<{ rawData: ITableData }> = ({ rawData }) => {
                                         type="number"
                                         className={cx('input')}
                                         defaultValue={val}
-                                        onUpdate={(el: any) => HandleUpdateData(indexRow, indexCol + 1, el.value)}
+                                        onUpdate={(el) => HandleUpdateData(indexRow, indexCol + 1, el.value)}
                                     />
                                 </td>
                             ))}
@@ -69,7 +79,7 @@ const Table: React.FC<{ rawData: ITableData }> = ({ rawData }) => {
                 </tbody>
                 <tfoot className={cx('table__footer')}>
                     <tr>
-                        <td colSpan={data[0].length} onClick={AppendData}>
+                        <td colSpan={data.length === 0 ? heading.length : data[0].length} onClick={AppendData}>
                             <Button noHover style={{ width: '100%' }}>
                                 &#8230;
                             </Button>

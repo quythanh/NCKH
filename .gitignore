@@ -23,3 +23,7 @@
 /frontend/yarn-error.log*
 
 .vscode
+
+# backend
+/backend/**/*/__pycache__/
+*.py[cod]

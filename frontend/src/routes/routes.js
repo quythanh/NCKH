@@ -1,5 +1,3 @@
-import { IRoute } from '~/interfaces';
-
 // Layouts
 // import { HeaderOnly } from '~/components/Layouts';
 // import { DefaultLayout } from '~/components/Layouts';
@@ -8,7 +6,7 @@ import { IRoute } from '~/interfaces';
 import Home from '~/pages/Home';
 import Follow from '~/pages/Follow';
 
-const publicRoutes: IRoute[] = [
+const publicRoutes = [
     {
         path: '/',
         component: Home,
@@ -17,6 +15,6 @@ const publicRoutes: IRoute[] = [
     // { path: '/upload', component: Upload, layout: HeaderOnly },
 ];
 
-const privateRoutes: IRoute[] = [];
+const privateRoutes = [];
 
 export { publicRoutes, privateRoutes };

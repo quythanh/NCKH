@@ -6,12 +6,11 @@ import styles from './Menu.module.scss';
 import MenuItem from './MenuItem';
 import Button from '~/components/Button';
 import { default as PopperWrapper } from '~/components/Popper';
-import { IMenuItem } from '~/interfaces';
 
 const cx = classNames.bind(styles);
 
-const Menu = ({ items = [] }: { items: IMenuItem[] }) => {
-    const [page, setPage] = useState<string>(items[0].title);
+const Menu = ({ items = [] }) => {
+    const [page, setPage] = useState(items[0].title);
 
     return (
         <Tippy

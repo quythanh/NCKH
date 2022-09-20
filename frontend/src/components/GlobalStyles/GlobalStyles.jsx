@@ -1,6 +1,6 @@
 import './GlobalStyles.scss';
 
-const GlobalStyle: React.FC<{ children: JSX.Element }> = ({ children }) => {
+const GlobalStyle = ({ children }) => {
     return children;
 };
 

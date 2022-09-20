@@ -1,46 +1,40 @@
 import classNames from 'classnames/bind';
 
-import { ITableData } from '~/interfaces';
-
 import styles from './Home.module.scss';
 import Table from '~/components/Table';
 
 const cx = classNames.bind(styles);
 
-const DAILY_TABLE: ITableData = {
+const DAILY_TABLE = {
     heading: {
         color: '#38b6ff',
         data: ['Bảng sinh hoạt'],
     },
-    data: [
-        ['Ăn sáng', ''],
-        ['Ăn trưa', ''],
-        ['Ăn tối', ''],
-    ],
+    data: [],
 };
 
-const INVESTMENT_TABLE: ITableData = {
+const INVESTMENT_TABLE = {
     heading: {
         color: '#ffc700',
         data: ['Bảng đầu tư'],
     },
-    data: [['Mua xe', '']],
+    data: [],
 };
 
-const OBLIGATORY_TABLE: ITableData = {
+const OBLIGATORY_TABLE = {
     heading: {
         color: '#ff5757',
         data: ['Bảng bắt buộc'],
     },
-    data: [['Tiền thuê nhà', '']],
+    data: [],
 };
 
-const Home: React.FC = () => {
+const Home = () => {
     return (
         <div className={cx('wrapper')}>
-            <Table rawData={DAILY_TABLE} />
-            <Table rawData={INVESTMENT_TABLE} />
-            <Table rawData={OBLIGATORY_TABLE} />
+            <Table rawData={DAILY_TABLE} srcData="test/home/daily/" />
+            <Table rawData={INVESTMENT_TABLE} srcData="test/home/investment/" />
+            <Table rawData={OBLIGATORY_TABLE} srcData="test/home/obligatory/" />
         </div>
     );
 };

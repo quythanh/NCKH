@@ -5,7 +5,7 @@ import styles from './Input.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Input: React.FC<any> = ({
+const Input = ({
     label = '',
     type = 'text',
     id = '',
@@ -13,11 +13,11 @@ const Input: React.FC<any> = ({
     autoSize = false,
     className = '',
     defaultValue = '',
-    onUpdate = (e: HTMLElement) => {},
+    onUpdate = (e) => {},
     ...passProps
 }) => {
-    const [width, setWidth] = useState<number>(10);
-    const inputRef: any = useRef();
+    const [width, setWidth] = useState(10);
+    const inputRef = useRef();
 
     const HandleChange = () => {
         onUpdate(inputRef.current);

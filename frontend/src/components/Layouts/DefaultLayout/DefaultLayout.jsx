@@ -1,7 +1,5 @@
 import classNames from 'classnames/bind';
 
-import { IDefaultProps } from '~/interfaces';
-
 import styles from './DefaultLayout.module.scss';
 import Input from '~/components/Input';
 import Header from '~/components/Layouts/components/Header';
@@ -9,7 +7,7 @@ import Section from '~/components/Section';
 
 const cx = classNames.bind(styles);
 
-const DefaultLayout: React.FC<IDefaultProps> = ({ children }) => {
+const DefaultLayout = ({ children }) => {
     return (
         <div className={cx('wrapper')}>
             <Header />

@@ -1,24 +1,9 @@
 import classNames from 'classnames/bind';
-import { Link, LinkProps } from 'react-router-dom';
-
-// import { IDefaultProps } from '~/interfaces';
+import { Link } from 'react-router-dom';
 
 import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
-
-// interface IButton extends IDefaultProps {
-//     to?: string;
-//     href?: string;
-//     leftIcon?: string | React.FC | JSX.Element | undefined;
-//     rightIcon?: string | React.FC | JSX.Element | undefined;
-//     outline?: boolean;
-//     rounded?: boolean;
-//     noHover?: boolean;
-//     large?: boolean;
-// }
-
-interface IAnchor extends React.ForwardRefExoticComponent<LinkProps & React.RefAttributes<HTMLAnchorElement>> {}
 
 const Button = ({
     to = '',
@@ -34,9 +19,9 @@ const Button = ({
     children = '',
     ...passProps
 }) => {
-    let Component: string | IAnchor = 'button';
+    let Component = 'button';
 
-    const classes: string = cx('wrapper', {
+    const classes = cx('wrapper', {
         [className]: className,
         outline,
         rounded,
@@ -44,7 +29,7 @@ const Button = ({
         noHover,
     });
 
-    const props: any = {
+    const props = {
         onClick,
         ...passProps,
     };
