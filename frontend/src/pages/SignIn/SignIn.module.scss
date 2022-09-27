@@ -1,0 +1,40 @@
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+
+    &-header {
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        font-weight: bolder;
+    }
+
+    &-body {
+        padding: 10px;
+
+        .input {
+            padding: 5px 10px;
+        }
+
+        .forget-password {
+            color: #1877f2;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &-footer {
+        padding-top: 1rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.125);
+    }
+}

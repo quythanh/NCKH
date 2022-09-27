@@ -56,7 +56,7 @@ const Table = ({ rawData, srcData = '' }) => {
                         <tr key={indexRow}>
                             <th>
                                 <Input
-                                    autoSize
+                                    autoWidth
                                     className={cx('input')}
                                     defaultValue={row[0]}
                                     onUpdate={(el) => HandleUpdateData(indexRow, 0, el.value)}
@@ -65,7 +65,7 @@ const Table = ({ rawData, srcData = '' }) => {
                             {row.slice(1).map((val, indexCol) => (
                                 <td key={indexCol}>
                                     <Input
-                                        autoSize
+                                        autoWidth
                                         min="0"
                                         type="number"
                                         className={cx('input')}

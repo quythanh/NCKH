@@ -19,10 +19,13 @@ const LIST_MENU_ITEMS = [
 ];
 
 const Header = () => {
-    const [user, setUser] = useState(false);
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('CurUser')) || {});
 
-    const handleSetUser = () => {
-        setUser((prev) => !prev);
+    const checkUser = () => user.hasOwnProperty('id') && user.hasOwnProperty('username');
+
+    const SignOut = () => {
+        setUser({});
+        localStorage.setItem('CurUser', JSON.stringify({}));
     };
 
     return (
@@ -33,13 +36,13 @@ const Header = () => {
                 <Menu items={LIST_MENU_ITEMS} />
 
                 {/* user || login */}
-                {user ? (
-                    <Button outline rounded onClick={handleSetUser}>
-                        Sign out
+                {checkUser() ? (
+                    <Button outline rounded onClick={SignOut}>
+                        Đăng xuất
                     </Button>
                 ) : (
-                    <Button outline rounded onClick={handleSetUser}>
-                        Sign in
+                    <Button to="/sign-in" outline rounded>
+                        Đăng nhập
                     </Button>
                 )}
             </div>

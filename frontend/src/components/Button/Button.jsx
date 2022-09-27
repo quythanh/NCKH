@@ -12,6 +12,8 @@ const Button = ({
     className = '',
     leftIcon = undefined,
     rightIcon = undefined,
+    center = false,
+    maxWidth = false,
     outline = false,
     rounded = false,
     noHover = false,
@@ -27,6 +29,8 @@ const Button = ({
         rounded,
         large,
         noHover,
+        center,
+        maxWidth,
     });
 
     const props = {

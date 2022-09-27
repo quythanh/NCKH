@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 const MenuItem = ({ data, ...passProps }) => {
     return (
-        <Button className={cx('menu-item')} to={data.page} {...passProps}>
+        <Button maxWidth to={data.page} {...passProps}>
             {data.title}
         </Button>
     );

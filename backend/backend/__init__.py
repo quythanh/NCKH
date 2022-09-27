@@ -8,3 +8,4 @@ CORS(app)
 # urls
 import backend.api
 import backend.test
+import backend.users

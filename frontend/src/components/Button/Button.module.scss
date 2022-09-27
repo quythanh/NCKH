@@ -1,6 +1,5 @@
 .wrapper {
     padding: 6px 15px;
-    color: var(--text-color);
     border-radius: 6px;
     font-size: 1.6rem;
     cursor: pointer;
@@ -8,10 +7,19 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    width: max-content;
 
     &:not(.noHover):hover {
         background-color: var(--btn-hover-color);
     }
+}
+
+.center {
+    margin: auto;
+}
+
+.maxWidth {
+    width: 100%;
 }
 
 // button types

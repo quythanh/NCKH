@@ -32,7 +32,7 @@ const Menu = ({ items = [] }) => {
             )}
         >
             <div>
-                <Button outline large>
+                <Button large noHover className={cx('active')}>
                     {page}
                 </Button>
             </div>

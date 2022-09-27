@@ -1,0 +1,8 @@
+.active {
+    background-color: rgba(225, 237, 247, 1);
+    color: rgba(10, 120, 190, 1);
+
+    &:hover {
+        background-color: rgba(195, 220, 245, 1);
+    }
+}

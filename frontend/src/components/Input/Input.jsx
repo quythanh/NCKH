@@ -10,7 +10,9 @@ const Input = ({
     type = 'text',
     id = '',
     underline = false,
-    autoSize = false,
+    autoWidth = false,
+    maxWidth = false,
+    border = false,
     className = '',
     defaultValue = '',
     onUpdate = (e) => {},
@@ -34,13 +36,13 @@ const Input = ({
     });
 
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper', { maxWidth, border })}>
             {label && <label htmlFor={id}>{label}:</label>}
             <input
                 ref={inputRef}
                 type={type}
                 id={id}
-                style={{ width: autoSize ? width + 'ch' : 'auto' }}
+                style={{ width: maxWidth ? '100%' : autoWidth ? width + 'ch' : 'auto' }}
                 className={classes}
                 defaultValue={defaultValue}
                 onChange={HandleChange}
