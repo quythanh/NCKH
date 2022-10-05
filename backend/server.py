@@ -1,5 +1,7 @@
 from os import environ
-from backend import app
+from src import create_app
+
+app = create_app()
 
 if __name__ == "__main__":
     HOST = environ.get('SERVER_HOST', 'localhost')

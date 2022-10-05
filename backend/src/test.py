@@ -1,7 +1,7 @@
 from random import randint
 from time import sleep
 
-from backend import app
+from src import app
 
 @app.route('/api/test/<string:page>/<string:table>/', methods=['GET'])
 def home_api(page, table):
@@ -17,7 +17,7 @@ def home_api(page, table):
             "investment": {
                 "data": [['Mua xe', '55000000']]
             },
-            "obligatory": {
+            "mandatory": {
                 "data": []
             }
         },

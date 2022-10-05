@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 const DAILY_TABLE = {
     heading: {
-        color: '#38b6ff',
+        color: '#90e9ff',
         data: ['Bảng sinh hoạt'],
     },
     data: [],
@@ -15,15 +15,15 @@ const DAILY_TABLE = {
 
 const INVESTMENT_TABLE = {
     heading: {
-        color: '#ffc700',
+        color: '#ffe990',
         data: ['Bảng đầu tư'],
     },
     data: [],
 };
 
-const OBLIGATORY_TABLE = {
+const MANDATORY_TABLE = {
     heading: {
-        color: '#ff5757',
+        color: '#ff5a5a',
         data: ['Bảng bắt buộc'],
     },
     data: [],
@@ -32,9 +32,9 @@ const OBLIGATORY_TABLE = {
 const Home = () => {
     return (
         <div className={cx('wrapper')}>
-            <Table rawData={DAILY_TABLE} srcData="test/home/daily/" />
-            <Table rawData={INVESTMENT_TABLE} srcData="test/home/investment/" />
-            <Table rawData={OBLIGATORY_TABLE} srcData="test/home/obligatory/" />
+            <Table template={DAILY_TABLE} srcData="tables/daily/" />
+            <Table template={INVESTMENT_TABLE} srcData="tables/investment/" />
+            <Table template={MANDATORY_TABLE} srcData="tables/mandatory/" />
         </div>
     );
 };

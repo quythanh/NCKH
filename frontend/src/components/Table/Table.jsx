@@ -8,9 +8,9 @@ import request from '~/utils/request';
 
 const cx = classNames.bind(styles);
 
-const Table = ({ rawData, srcData = '' }) => {
-    const [data, setData] = useState(rawData.data);
-    const [heading] = useState(rawData.heading.data);
+const Table = ({ template, srcData = '' }) => {
+    const [data, setData] = useState(template.data);
+    const [heading] = useState(template.heading.data);
 
     const AppendData = () => {
         setData((prev) => {
@@ -27,11 +27,15 @@ const Table = ({ rawData, srcData = '' }) => {
     };
 
     useEffect(() => {
-        const fetchData = async () => {
-            const req = await request.get(srcData);
+        const fetchData = async (userID) => {
+            const req = await request.get(srcData + userID);
             setData(req.data['data']);
         };
-        if (srcData !== '') fetchData();
+        if (srcData !== '') {
+            let curUser = JSON.parse(localStorage.getItem('CurUser'));
+            let userID = curUser.id || '0';
+            fetchData(userID);
+        }
     }, []);
 
     return (
@@ -40,7 +44,7 @@ const Table = ({ rawData, srcData = '' }) => {
                 {heading && (
                     <thead
                         className={cx('table__header')}
-                        style={{ backgroundColor: rawData.heading.color || 'inherit' }}
+                        style={{ backgroundColor: template.heading.color || 'inherit' }}
                     >
                         <tr>
                             {heading.map((h, index) => (

@@ -16,7 +16,7 @@ const TIME_TABLE = {
 const Follow = () => {
     return (
         <div className={cx('wrapper')}>
-            <Table rawData={TIME_TABLE} srcData="test/follow/daily/" />
+            <Table template={TIME_TABLE} srcData="test/follow/daily/" />
         </div>
     );
 };
