@@ -4,6 +4,7 @@ import { EmptyLayout } from '~/components/Layouts';
 // Pages
 import Home from '~/pages/Home';
 import Follow from '~/pages/Follow';
+import Graph from '~/pages/Graph';
 import SignIn from '~/pages/SignIn';
 import SignUp from '~/pages/SignUp';
 
@@ -17,12 +18,16 @@ const publicRoutes = [
         component: Follow,
     },
     {
-        path: 'sign-in',
+        path: '/graph',
+        component: Graph,
+    },
+    {
+        path: '/sign-in',
         component: SignIn,
         layout: EmptyLayout,
     },
     {
-        path: 'sign-up',
+        path: '/sign-up',
         component: SignUp,
         layout: EmptyLayout,
     },

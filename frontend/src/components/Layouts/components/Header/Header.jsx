@@ -16,6 +16,10 @@ const LIST_MENU_ITEMS = [
         title: 'Theo dõi chi tiêu',
         page: '/follow',
     },
+    {
+        title: 'Biểu đồ chi tiêu',
+        page: '/graph',
+    },
 ];
 
 const Header = () => {
