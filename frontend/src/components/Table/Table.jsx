@@ -32,7 +32,7 @@ const Table = ({ template, srcData = '' }) => {
             setData(req.data['data']);
         };
         if (srcData !== '') {
-            let curUser = JSON.parse(localStorage.getItem('CurUser'));
+            let curUser = JSON.parse(localStorage.getItem('CurUser') || '{}');
             let userID = curUser.id || '0';
             fetchData(userID);
         }
@@ -40,12 +40,16 @@ const Table = ({ template, srcData = '' }) => {
 
     return (
         <div className={cx('wrapper')}>
-            <table className={cx('table')}>
+            <table
+                className={cx('table')}
+                style={{
+                    '--table-border-color': template.heading.borderColor || '#ccc',
+                    '--table-background-color': template.heading.bgColor || 'inherit',
+                    '--table-text-color': template.heading.color || 'inherit',
+                }}
+            >
                 {heading && (
-                    <thead
-                        className={cx('table__header')}
-                        style={{ backgroundColor: template.heading.color || 'inherit' }}
-                    >
+                    <thead className={cx('table__header')}>
                         <tr>
                             {heading.map((h, index) => (
                                 <th key={index} colSpan={data.length === 0 ? 1 : data[0].length / heading.length}>

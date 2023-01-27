@@ -27,3 +27,4 @@
 # backend
 /backend/**/*/__pycache__/
 *.py[cod]
+.env

@@ -7,13 +7,13 @@
 .table {
     border-spacing: 0;
     border-collapse: separate;
-    border: 1px solid #ccc;
+    border: 1px solid var(--table-border-color);
     border-radius: 7px;
 
     th,
     td {
-        border-top: 1px solid #ccc;
-        border-left: 1px solid #ccc;
+        border-top: 1px solid var(--table-border-color);
+        border-left: 1px solid var(--table-border-color);
         padding: 5px 10px;
 
         &:first-child {
@@ -21,20 +21,25 @@
         }
     }
 
-    &__header > tr {
-        > th {
-            border-top: none;
+    &__header {
+        background-color: var(--table-background-color);
+        color: var(--table-text-color);
 
-            &:first-child {
-                border-radius: 6px 0 0 0;
-            }
-
-            &:last-child {
-                border-radius: 0 6px 0 0;
-            }
-
-            &:only-child {
-                border-radius: 6px 6px 0 0;
+        & > tr {
+            > th {
+                border-top: none;
+    
+                &:first-child {
+                    border-radius: 6px 0 0 0;
+                }
+    
+                &:last-child {
+                    border-radius: 0 6px 0 0;
+                }
+    
+                &:only-child {
+                    border-radius: 6px 6px 0 0;
+                }
             }
         }
     }

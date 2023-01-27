@@ -2,14 +2,10 @@
     padding: 10px;
     border-radius: 6px;
     background-color: var(--section-background-color);
-    max-width: var(--default-layout-width);
     width: max-content;
+    height: fit-content;
     max-width: calc(100% - 20px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-
-    & + & {
-        margin-top: 15px;
-    }
 }
 
 .center {

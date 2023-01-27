@@ -7,7 +7,9 @@ const cx = classNames.bind(styles);
 
 const DAILY_TABLE = {
     heading: {
-        color: '#90e9ff',
+        bgColor: '#e0f2fe',
+        borderColor: '#bae6fd',
+        color: '#0369a1',
         data: ['Bảng sinh hoạt'],
     },
     data: [],
@@ -15,7 +17,9 @@ const DAILY_TABLE = {
 
 const INVESTMENT_TABLE = {
     heading: {
-        color: '#ffe990',
+        bgColor: '#fef3c7',
+        borderColor: '#fde68a',
+        color: '#b45309',
         data: ['Bảng đầu tư'],
     },
     data: [],
@@ -23,7 +27,9 @@ const INVESTMENT_TABLE = {
 
 const MANDATORY_TABLE = {
     heading: {
-        color: '#ff5a5a',
+        bgColor: '#ffe4e6',
+        borderColor: '#fecdd3',
+        color: '#be123c',
         data: ['Bảng bắt buộc'],
     },
     data: [],
