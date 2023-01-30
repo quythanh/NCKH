@@ -1,0 +1,26 @@
+.wrapper {
+    top: 0;
+    position: fixed;
+    height: 100vh;
+    background: #fff;
+    z-index: 1;
+    will-change: transform;
+    transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+
+    &,
+    &.open {
+        box-shadow: 0 0.125rem 9.375rem rgb(90 97 105 / 10%), 0 0.25rem 0.5rem rgb(90 97 105 / 12%),
+            0 0.9375rem 1.375rem rgb(90 97 105 / 10%), 0 0.4375rem 2.1875rem rgb(165 182 201 / 10%);
+    }
+}
+
+.action {
+
+}
+
+@media (max-width: 767.98px) {
+    .wrapper {
+        transform: translateX(-100%);
+        box-shadow: none;
+    }
+}

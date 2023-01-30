@@ -6,7 +6,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-
 def create_database(app):
     if not path.exists('src/database/db.sqlite3'):
         db.create_all(app=app)

@@ -1,16 +1,15 @@
 import classNames from 'classnames/bind';
-
 import styles from './SignIn.module.scss';
-import Section from '~/components/Section';
-import Input from '~/components/Input';
-import Button from '~/components/Button';
+
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const cx = classNames.bind(styles);
 
 const SignIn = () => {
     return (
-        <div className={cx('wrapper')}>
-            <Section center>
+        <div className="flex-center w-100 vh-100">
+            {/* <Section center>
                 <div className={cx('card')}>
                     <div className={cx('card-header')}>Đăng nhập</div>
                     <div className={cx('card-body')}>
@@ -44,7 +43,7 @@ const SignIn = () => {
                             >
                                 Đăng nhập
                             </Button>
-                            {/* Sử lý đăng nhập (Kiểm tra tài khoản) */}
+                            
                             <Button center noHover href="#" className={cx('forget-password')}>
                                 Quên mật khẩu?
                             </Button>
@@ -60,7 +59,17 @@ const SignIn = () => {
                         </Button>
                     </div>
                 </div>
-            </Section>
+            </Section> */}
+            <form action="/api/users/auth" method="POST" className="card card--no-border fs-3">
+                <div className="card-header mx-auto">Access Your Account</div>
+                <div className="card-body">
+                    <TextField id="email" label="Email" type="email" variant="outlined" fullWidth />
+                    <TextField id="password" label="Password" type="password" variant="outlined" fullWidth />
+                </div>
+                <div className="card-footer mx-auto">
+                    <Button variant="contained" className='rounded-pill'>Sign In</Button>
+                </div>
+            </form>
         </div>
     );
 };

@@ -1,28 +1,12 @@
 import classNames from 'classnames/bind';
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 
 import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
-import Menu from '~/components/Menu';
 import { useState } from 'react';
 
 const cx = classNames.bind(styles);
-
-const LIST_MENU_ITEMS = [
-    {
-        title: 'Dashboard',
-        page: '/',
-    },
-    {
-        title: 'Theo dõi chi tiêu',
-        page: '/follow',
-    },
-    {
-        title: 'Biểu đồ chi tiêu',
-        page: '/graph',
-    },
-];
 
 const Header = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('CurUser')) || {});
@@ -37,28 +21,26 @@ const Header = () => {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('shopName')}>Trang chủ</div>
-
-                <Menu items={LIST_MENU_ITEMS} />
+                <div className={cx('name')}>Home</div>
 
                 {/* user || login */}
                 {checkUser() ? (
                     <Button
                         variant="outlined"
                         size="small"
-                        className={cx('btn', 'round')}
+                        className={cx('btn', 'rounded-pill')}
                         onClick={SignOut}
                     >
-                        Đăng xuất
+                        Sign out
                     </Button>
                 ) : (
                    <Link to="/sign-in">
                         <Button
                             variant="outlined"
                             size="small"
-                            className={cx('btn', 'round')}
+                            className={cx('btn', 'rounded-pill')}
                         >
-                            Đăng nhập
+                            Sign in
                         </Button>
                    </Link>
                 )}

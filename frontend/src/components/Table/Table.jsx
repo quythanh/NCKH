@@ -36,7 +36,7 @@ const Table = ({ template, srcData = '' }) => {
             let userID = curUser.id || '0';
             fetchData(userID);
         }
-    }, []);
+    }, [srcData]);
 
     return (
         <div className={cx('wrapper')}>

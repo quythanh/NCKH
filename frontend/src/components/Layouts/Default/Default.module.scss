@@ -1,19 +1,14 @@
-@import '../../GlobalStyles/mixin';
+@import '../../../mixin';
 
 .wrapper {
     @include backgound-gradient;
 }
 
-.container {
-    min-height: calc(100vh - 56px);
-    padding: 10px;
-}
-
 .inner {
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: space-around;
+    height: calc(100vh - 56px);
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .form {
@@ -37,7 +32,7 @@
     display: flex;
     gap: 10px;
 
-    >div {
+    > div {
         min-width: 50px;
     }
 
