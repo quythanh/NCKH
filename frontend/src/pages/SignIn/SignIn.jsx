@@ -3,73 +3,41 @@ import styles from './SignIn.module.scss';
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 const cx = classNames.bind(styles);
 
 const SignIn = () => {
     return (
-        <div className="flex-center w-100 vh-100">
-            {/* <Section center>
-                <div className={cx('card')}>
-                    <div className={cx('card-header')}>Đăng nhập</div>
-                    <div className={cx('card-body')}>
-                        <form action="/api/users/auth" method="POST">
-                            <Input
-                                type="text"
-                                placeholder="Tên đăng nhập hoặc email"
-                                id="username"
-                                name="username"
-                                className={cx('input')}
-                                border
-                                maxWidth
-                            />
-                            <Input
-                                type="password"
-                                placeholder="Mật khẩu"
-                                id="password"
-                                name="password"
-                                className={cx('input')}
-                                border
-                                maxWidth
-                            />
-                            <Button
-                                maxWidth
-                                style={{
-                                    backgroundColor: '#1877f2',
-                                    color: '#fff',
-                                    fontWeight: 'bold',
-                                    marginTop: '5px',
-                                }}
-                            >
-                                Đăng nhập
-                            </Button>
-                            
-                            <Button center noHover href="#" className={cx('forget-password')}>
-                                Quên mật khẩu?
-                            </Button>
-                        </form>
-                    </div>
-                    <div className={cx('card-footer')}>
-                        <Button
-                            center
-                            to="/sign-up"
-                            style={{ backgroundColor: '#42b72a', color: '#fff', fontWeight: 'bold' }}
-                        >
-                            Tạo tài khoản mới
-                        </Button>
-                    </div>
+        <div className="flex-center flex-column w-100 vh-100">
+            <form
+                action="/api/users/auth"
+                method="POST"
+                className={cx('form', 'card card--no-styled fs-3 rounded-4 overflow-hidden')}
+            >
+                <div className={cx('form-header', 'card-header w-100 rounded-4 text-center')}>Truy cập tài khoản</div>
+                <div className={cx('form-body', 'card-body d-flex flex-column')}>
+                    <TextField
+                        id="username"
+                        label="Tên đăng nhập"
+                        type="text"
+                        variant="outlined"
+                        className="mb-4"
+                        size="large"
+                    />
+                    <TextField id="password" label="Mật khẩu" type="password" variant="outlined" size="large" />
+                    <FormControlLabel control={<Checkbox size="large" />} label="Ghi nhớ mật khẩu trong 30 ngày" />
                 </div>
-            </Section> */}
-            <form action="/api/users/auth" method="POST" className="card card--no-border fs-3">
-                <div className="card-header mx-auto">Access Your Account</div>
-                <div className="card-body">
-                    <TextField id="email" label="Email" type="email" variant="outlined" fullWidth />
-                    <TextField id="password" label="Password" type="password" variant="outlined" fullWidth />
-                </div>
-                <div className="card-footer mx-auto">
-                    <Button variant="contained" className='rounded-pill'>Sign In</Button>
+                <div className="card-footer mx-auto pb-4">
+                    <Button type="submit" variant="contained" className="fs-5 text-capitalize rounded-pill">
+                        Đăng nhập
+                    </Button>
                 </div>
             </form>
+            <div className="d-flex">
+                
+            </div>
         </div>
     );
 };
