@@ -19,30 +19,21 @@ const Header = () => {
     };
 
     return (
-        <header className={cx('wrapper')}>
-            <div className={cx('inner')}>
-                <div className={cx('name')}>Home</div>
+        <header className={cx('wrapper', 'd-flex')}>
+            <div className={cx('inner', 'flex-center justify-content-between h-100 mx-auto')}>
+                <div className={cx('alert')}></div>
 
                 {/* user || login */}
                 {checkUser() ? (
-                    <Button
-                        variant="outlined"
-                        size="small"
-                        className={cx('btn', 'rounded-pill')}
-                        onClick={SignOut}
-                    >
+                    <Button variant="outlined" size="small" className={cx('btn', 'rounded-pill')} onClick={SignOut}>
                         Sign out
                     </Button>
                 ) : (
-                   <Link to="/sign-in">
-                        <Button
-                            variant="outlined"
-                            size="small"
-                            className={cx('btn', 'rounded-pill')}
-                        >
+                    <Link to="/sign-in">
+                        <Button variant="outlined" size="small" className={cx('btn', 'rounded-pill')}>
                             Sign in
                         </Button>
-                   </Link>
+                    </Link>
                 )}
             </div>
         </header>

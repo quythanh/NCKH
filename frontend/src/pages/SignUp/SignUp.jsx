@@ -1,75 +1,52 @@
 import classNames from 'classnames/bind';
-
 import styles from './SignUp.module.scss';
-import Section from '~/components/Section';
-import Input from '~/components/Input';
-import Button from '~/components/Button';
+
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 const SignUp = () => {
     return (
-        <div className={cx('wrapper')}>
-            <Section center>
-                <div className={cx('card')}>
-                    <div className={cx('card-header')}>Đăng ký</div>
-                    <form action="api/users/register" method="POST">
-                        <div className={cx('card-body')}>
-                            <Input
-                                type="text"
-                                placeholder="Tên đăng nhập"
-                                id="username"
-                                name="username"
-                                className={cx('input')}
-                                border
-                                maxWidth
-                                required
-                            />
-                            <Input
-                                type="email"
-                                placeholder="Email"
-                                id="email"
-                                name="email"
-                                className={cx('input')}
-                                border
-                                maxWidth
-                                required
-                            />
-                            <Input
-                                type="password"
-                                placeholder="Mật khẩu"
-                                id="password"
-                                name="password"
-                                className={cx('input')}
-                                border
-                                maxWidth
-                                required
-                            />
-                            <Input
-                                type="password"
-                                placeholder="Nhập lại mật khẩu"
-                                id="password2"
-                                name="password2"
-                                className={cx('input')}
-                                border
-                                maxWidth
-                                required
-                            />
-                        </div>
-                        <div className={cx('card-footer')}>
-                            <Button style={{ backgroundColor: '#42b72a', color: '#fff', fontWeight: 'bold' }}>
-                                Đăng ký
-                            </Button>
-                            <Button
-                                to="/sign-in"
-                                style={{ backgroundColor: '#1877f2', color: '#fff', fontWeight: 'bold' }}
-                            >
-                                Đăng nhập
-                            </Button>
-                        </div>
-                    </form>
+        <div className="flex-center flex-column w-100 vh-100">
+            <form
+                action="/api/users/auth"
+                method="POST"
+                className={cx('form', 'card card--no-styled fs-3 rounded-4 overflow-hidden')}
+            >
+                <div className={cx('form-header', 'card-header w-100 rounded-4 text-center px-5 py-4')}>
+                    Tạo tài khoản mới
                 </div>
-            </Section>
+                <div className={cx('form-body', 'card-body d-flex flex-column px-5')}>
+                    <TextField id="email" label="Email" type="email" variant="outlined" className="mb-4" size="large" />
+                    <TextField
+                        id="password"
+                        label="Mật khẩu"
+                        type="password"
+                        variant="outlined"
+                        className="mb-4"
+                        size="large"
+                    />
+                    <TextField
+                        id="password-2"
+                        label="Nhập lại mật khẩu"
+                        type="password"
+                        variant="outlined"
+                        size="large"
+                    />
+                </div>
+                <div className="card-footer mx-auto pb-4">
+                    <Button type="submit" variant="contained" className="fs-5 text-capitalize rounded-pill">
+                        Tạo tài khoản
+                    </Button>
+                </div>
+            </form>
+            <div className="d-flex justify-content-between mt-4 px-3" style={{ width: '300px' }}>
+                <Link to="/forgot-password">Quên mật khẩu?</Link>
+                <Link to="/sign-in">Đăng nhập?</Link>
+            </div>
         </div>
     );
 };

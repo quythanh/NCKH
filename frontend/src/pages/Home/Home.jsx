@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 
 import styles from './Home.module.scss';
 import Table from '~/components/Table';
+import Section from '~/components/Section';
 
 const cx = classNames.bind(styles);
 
@@ -37,11 +38,11 @@ const MANDATORY_TABLE = {
 
 const Home = () => {
     return (
-        <div className={cx('wrapper')}>
+        <Section className={cx('wrapper')} center>
             <Table template={DAILY_TABLE} srcData="tables/daily/" />
             <Table template={INVESTMENT_TABLE} srcData="tables/investment/" />
             <Table template={MANDATORY_TABLE} srcData="tables/mandatory/" />
-        </div>
+        </Section>
     );
 };
 

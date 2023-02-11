@@ -52,7 +52,11 @@ const Table = ({ template, srcData = '' }) => {
                     <thead className={cx('table__header')}>
                         <tr>
                             {heading.map((h, index) => (
-                                <th key={index} colSpan={data.length === 0 ? 1 : data[0].length / heading.length}>
+                                <th
+                                    key={index}
+                                    colSpan={data.length === 0 ? 1 : data[0].length / heading.length}
+                                    className="text-center"
+                                >
                                     {h}
                                 </th>
                             ))}

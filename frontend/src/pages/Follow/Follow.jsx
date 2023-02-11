@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 
 import styles from './Follow.module.scss';
 import Table from '~/components/Table';
+import Section from '~/components/Section';
 
 const cx = classNames.bind(styles);
 
@@ -17,9 +18,9 @@ const TIME_TABLE = {
 
 const Follow = () => {
     return (
-        <div className={cx('wrapper')}>
+        <Section className={cx('wrapper')} center>
             <Table template={TIME_TABLE} srcData="test/follow/daily/" />
-        </div>
+        </Section>
     );
 };
 

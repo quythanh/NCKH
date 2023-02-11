@@ -1,8 +1,0 @@
-@import '../../../mixin';
-
-.wrapper {
-    @include backgound-gradient;
-    height: 100vh;
-    padding: 10px;
-    overflow: hidden;
-}
