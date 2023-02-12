@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 
+import Button from '@mui/material/Button';
+
 import styles from './Table.module.scss';
 import Input from '~/components/Input';
-import Button from '~/components/Button';
 import request from '~/utils/request';
 
 const cx = classNames.bind(styles);
@@ -91,8 +92,8 @@ const Table = ({ template, srcData = '' }) => {
                 </tbody>
                 <tfoot className={cx('table__footer')}>
                     <tr>
-                        <td colSpan={data.length === 0 ? heading.length : data[0].length} onClick={AppendData}>
-                            <Button noHover style={{ width: '100%' }}>
+                        <td colSpan={data.length === 0 ? heading.length : data[0].length}>
+                            <Button onClick={AppendData} className="w-100">
                                 &#8230;
                             </Button>
                         </td>
