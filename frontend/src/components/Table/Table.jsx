@@ -1,3 +1,4 @@
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 
@@ -12,6 +13,15 @@ const cx = classNames.bind(styles);
 const Table = ({ template, srcData = '' }) => {
     const [data, setData] = useState(template.data);
     const [heading] = useState(template.heading.data);
+    const [theme] = useState(
+        createTheme({
+            palette: {
+                primary: {
+                    main: template.heading.color,
+                },
+            },
+        }),
+    );
 
     const AppendData = () => {
         setData((prev) => {
@@ -93,9 +103,11 @@ const Table = ({ template, srcData = '' }) => {
                 <tfoot className={cx('table__footer')}>
                     <tr>
                         <td colSpan={data.length === 0 ? heading.length : data[0].length}>
-                            <Button onClick={AppendData} className="w-100">
-                                &#8230;
-                            </Button>
+                            <ThemeProvider theme={theme}>
+                                <Button onClick={AppendData} fullWidth>
+                                    &#8230;
+                                </Button>
+                            </ThemeProvider>
                         </td>
                     </tr>
                 </tfoot>

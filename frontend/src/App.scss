@@ -56,6 +56,12 @@ a[href] {
     justify-content: center;
 }
 
+@for $i from 1 through 8 {
+    .g-#{$i} {
+        gap: calc(0.25rem * $i);
+    }
+}
+
 // override
 .card {
     &.card--no-styled {

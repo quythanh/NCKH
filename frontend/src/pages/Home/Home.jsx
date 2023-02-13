@@ -21,7 +21,7 @@ const INVESTMENT_TABLE = {
         bgColor: '#fef3c7',
         borderColor: '#fde68a',
         color: '#b45309',
-        data: ['Bảng đầu tư'],
+        data: ['Bảng tiết kiệm'],
     },
     data: [],
 };
