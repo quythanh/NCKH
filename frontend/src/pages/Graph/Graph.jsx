@@ -2,24 +2,19 @@ import { useState } from 'react';
 import { Chart } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
-    BarController,
+    BarController, // bar chart
     BarElement,
     CategoryScale,
-    LinearScale, // bar chart
-    DoughnutController,
-    ArcElement, // doughnut chart
+    LinearScale,
+    DoughnutController, // doughnut chart
+    ArcElement,
 } from 'chart.js';
+import IconButton from '@mui/material/IconButton';
+import TextField from '@mui/material/TextField';
 
-import classNames from 'classnames/bind';
-
-import styles from './Graph.module.scss';
-import Input from '~/components/Input';
-import Button from '~/components/Button';
 import Section from '~/components/Section';
 
 ChartJS.register(BarController, BarElement, CategoryScale, LinearScale, DoughnutController, ArcElement);
-
-const cx = classNames.bind(styles);
 
 const chartData = {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -43,7 +38,7 @@ const chartData = {
 const chartOptions = {
     scales: {
         myScale: {
-            position: 'right', // `axis` is determined by the position as `'y'`
+            position: 'right',
         },
     },
 };
@@ -53,24 +48,32 @@ const Graph = () => {
     const [chartType, setChartType] = useState('doughnut');
 
     return (
-        <Section className="flex-column" center>
-            <div className={cx('header')}>
-                <Input label="Số tiền còn lại" defaultValue={money} disabled />
+        <Section className="flex-column g-4" center>
+            <div className="flex-center justify-content-around">
+                <TextField
+                    label="Số tiền còn lại"
+                    defaultValue={money}
+                    InputProps={{
+                        readOnly: true,
+                    }}
+                    variant="standard"
+                />
+
+                <div className="date">Biểu đồ chi tiêu từ</div>
             </div>
-            <div className={cx('body')}>
-                <div className={cx('chart_type')}>
-                    <Button onClick={() => setChartType('bar')}>
-                        <i className="fa-duotone fa-chart-simple"></i>
-                    </Button>
-                    <Button onClick={() => setChartType('doughnut')}>
-                        <i className="fa-duotone fa-chart-pie"></i>
-                    </Button>
+            <div className="d-flex g-4">
+                <div className="flex-center flex-column g-4" style={{ minWidth: '50px' }}>
+                    <IconButton onClick={() => setChartType('bar')}>
+                        <i style={{ fontSize: '28px' }} className="fa-duotone fa-chart-simple"></i>
+                    </IconButton>
+                    <IconButton onClick={() => setChartType('doughnut')}>
+                        <i style={{ fontSize: '28px' }} className="fa-duotone fa-chart-pie"></i>
+                    </IconButton>
                 </div>
                 <div style={{ width: chartType === 'doughnut' ? 350 : 500 }}>
                     <Chart type={chartType} data={chartData} options={chartType === 'bar' ? chartOptions : {}} />
                 </div>
             </div>
-            <div className={cx('footer')}>Biểu đồ chi tiêu từ</div>
         </Section>
     );
 };
